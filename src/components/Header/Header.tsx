@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './header.module.css';
+import Watch from '../Watch/Watch';
 
 class Header extends React.Component {
   render() {
@@ -13,7 +14,7 @@ class Header extends React.Component {
           <option value="ru">RU</option>
           <option value="en">EN</option>
         </select>
-        Watch
+        <Watch />
       </header>
     );
   }
