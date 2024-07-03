@@ -1,5 +1,6 @@
 import React from 'react';
 import IWatchState from '../../model/Watch/watch';
+import styles from './watch.module.css';
 
 class Watch extends React.Component<{}, IWatchState> {
   private timerID?: number;
@@ -24,7 +25,7 @@ class Watch extends React.Component<{}, IWatchState> {
   }
 
   render() {
-    return <div>{this.state.time}</div>;
+    return <div className={styles.watch}> {this.state.time}</div>;
   }
 }
 

@@ -9,10 +9,14 @@ class Header extends React.Component {
 
     return (
       <header className={styles.header}>
-        <img src={headerImg} alt="Logo" />
-        <select>
-          <option value="ru">RU</option>
-          <option value="en">EN</option>
+        <img
+          className={styles.header__img}
+          src={headerImg}
+          alt="header image"
+        />
+        <select className={styles.header__select}>
+          <option value="ru">ru</option>
+          <option value="en">en</option>
         </select>
         <Watch />
       </header>
