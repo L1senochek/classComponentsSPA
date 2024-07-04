@@ -40,6 +40,14 @@ class Main extends React.Component<IMainProps> {
       });
   };
 
+  formatClientName = (fullName: string): string => {
+    const [lastName, firstName] = fullName.split(' ');
+    if (!firstName) {
+      return lastName;
+    }
+    return `${lastName} ${firstName.charAt(0)}.`;
+  };
+
   handlePageChange = (page: number) => {
     this.props.setPage(page);
   };
@@ -59,7 +67,9 @@ class Main extends React.Component<IMainProps> {
         <div className={styles.clients}>
           {currentClients.map((client, index) => (
             <div key={index} className={styles.client}>
-              <div className={styles.client__name}>{client.name}</div>
+              <div className={styles.client__name}>
+                {this.formatClientName(client.name)}
+              </div>
               <div className={styles.client__text}>{client.review}</div>
               <div className={styles.client__date}>{client.date}</div>
             </div>
