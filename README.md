@@ -1,30 +1,17 @@
-# React + TypeScript + Vite
+# classComponentsSPA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## deploy: https://class-components-spa.netlify.app/
 
-Currently, two official plugins are available:
+### Тестовое задание. Необходимо разработать простое SPA:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Блок "Header" состоит из картинки (из открытых источников), выпадающего списка языков (ru, en) и компонента "Watch" в формате "hh:mm:ss" (часы должны показывать реальное время)
+- Блок "Main" состоит из списка отзывов (данные из data.json: https://disk.yandex.ru/d/1zUh9hte3u2emQ ) в формате (имя клиента, отзыв, дата). Количество отзывов на одной странице - 10шт (max), если отзывов больше - должна быть реализована пагинация страниц в формате (min ... mid... max).
 
-## Expanding the ESLint configuration
+Имя клиента в формате: Иванов И.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Стек:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- React (class component)
+- Redux
+- Typescript
+- Webpack (или другой сборщик проектов)
