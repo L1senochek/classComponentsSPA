@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { Dispatch } from 'redux';
-
 import styles from './main.module.css';
 import { RootState } from '../../store/store';
 import {
@@ -12,23 +10,14 @@ import {
 } from '../../store/slices/clientsSlice';
 import { selectLanguage } from '../../store/slices/languageSlice';
 import { Dispatch } from '@reduxjs/toolkit';
+import IMainProps from '../../model/Main/main';
 
-interface MainProps {
-  clients: { name: string; review: string; date: string }[];
-  currentPage: number;
-  language: string;
-  setClients: (
-    clients: { name: string; review: string; date: string }[]
-  ) => void;
-  setPage: (page: number) => void;
-}
-
-class Main extends React.Component<MainProps> {
+class Main extends React.Component<IMainProps> {
   componentDidMount() {
     this.loadClientsData();
   }
 
-  componentDidUpdate(prevProps: MainProps) {
+  componentDidUpdate(prevProps: IMainProps) {
     if (prevProps.language !== this.props.language) {
       this.loadClientsData();
     }
@@ -38,12 +27,7 @@ class Main extends React.Component<MainProps> {
     fetch('./src/jsons/data.json')
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-
         const { language } = this.props;
-
-        console.log(data[language]);
-
         const formattedData = Object.values(data[language]).map(
           (client: any) => ({
             name: client.name,
@@ -51,7 +35,6 @@ class Main extends React.Component<MainProps> {
             date: client.date,
           })
         );
-
         this.props.setClients(formattedData);
       });
   };

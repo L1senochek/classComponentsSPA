@@ -5,13 +5,9 @@ import { connect } from 'react-redux';
 import { selectLanguage, setLanguage } from '../../store/slices/languageSlice';
 import { RootState } from '../../store/store';
 import { Dispatch } from '@reduxjs/toolkit';
+import IHeaderProps from '../../model/Header/header';
 
-interface HeaderProps {
-  language: string;
-  setLanguage: (language: string) => void;
-}
-
-class Header extends React.Component<HeaderProps> {
+class Header extends React.Component<IHeaderProps> {
   handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     this.props.setLanguage(event.target.value);
   };
