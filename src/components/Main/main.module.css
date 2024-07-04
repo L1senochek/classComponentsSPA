@@ -1,0 +1,50 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: 4rem 1rem;
+}
+
+.clients {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.client {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  border: 1px rgba(255, 255, 255, 0.87) solid;
+  border-radius: 20px;
+  padding: 20px;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.client__name {
+  font-size: 1.5rem;
+}
+
+.client__text {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.client__date {
+  font-weight: 500;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pagination__btn.active {
+  border-color: rgba(255, 255, 255, 0.87);
+}

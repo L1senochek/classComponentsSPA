@@ -29,8 +29,6 @@ class Main extends React.Component<IMainProps> {
       .then((response) => response.json())
       .then((data) => {
         const { language } = this.props;
-
-        console.log(data, language, data[language]);
         const formattedData = Object.values(data[language] as IClient[]).map(
           (client: IClient) => ({
             name: client.name,
@@ -48,7 +46,7 @@ class Main extends React.Component<IMainProps> {
 
   render() {
     const { clients, currentPage } = this.props;
-    const clientsPerPage = 10;
+    const clientsPerPage = 9;
     const totalPages = Math.ceil(clients.length / clientsPerPage);
     const startIndex = (currentPage - 1) * clientsPerPage;
     const currentClients = clients.slice(
@@ -57,13 +55,13 @@ class Main extends React.Component<IMainProps> {
     );
 
     return (
-      <div className={styles.main}>
+      <main className={styles.main}>
         <div className={styles.clients}>
           {currentClients.map((client, index) => (
-            <div key={index} className={styles.review}>
-              <div className={styles.review__name}>{client.name}</div>
-              <div className={styles.review__text}>{client.review}</div>
-              <div className={styles.review__date}>{client.date}</div>
+            <div key={index} className={styles.client}>
+              <div className={styles.client__name}>{client.name}</div>
+              <div className={styles.client__text}>{client.review}</div>
+              <div className={styles.client__date}>{client.date}</div>
             </div>
           ))}
         </div>
@@ -72,13 +70,13 @@ class Main extends React.Component<IMainProps> {
             <button
               key={index}
               onClick={() => this.handlePageChange(index + 1)}
-              className={currentPage === index + 1 ? styles.active : ''}
+              className={`${styles.pagination__btn}${currentPage === index + 1 ? ` ${styles.active}` : ''}`}
             >
               {index + 1}
             </button>
           ))}
         </div>
-      </div>
+      </main>
     );
   }
 }
