@@ -11,6 +11,7 @@ import {
 import { selectLanguage } from '../../store/slices/languageSlice';
 import { Dispatch } from '@reduxjs/toolkit';
 import IMainProps from '../../model/Main/main';
+import { IClient } from '@/model/slices/clientsSlice';
 
 class Main extends React.Component<IMainProps> {
   componentDidMount() {
@@ -28,8 +29,10 @@ class Main extends React.Component<IMainProps> {
       .then((response) => response.json())
       .then((data) => {
         const { language } = this.props;
-        const formattedData = Object.values(data[language]).map(
-          (client: any) => ({
+
+        console.log(data, language, data[language]);
+        const formattedData = Object.values(data[language] as IClient[]).map(
+          (client: IClient) => ({
             name: client.name,
             review: client.review,
             date: client.date,
