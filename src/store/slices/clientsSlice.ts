@@ -1,9 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-
-import {
-  IClientsAction,
-  IClientsState,
-} from '../../model/slices/clientsReducer';
+import { IClient, IClientsState } from '../../model/slices/clientsSlice';
 import { RootState } from '../store';
 
 const initialState: IClientsState = {
@@ -15,7 +11,7 @@ const clientsSlice = createSlice({
   name: 'clients',
   initialState,
   reducers: {
-    setClients: (state, action: PayloadAction<IClientsAction['payload']>) => {
+    setClients: (state, action: PayloadAction<IClient[]>) => {
       state.clients = action.payload;
     },
     setPage: (state, action: PayloadAction<number>) => {
@@ -24,10 +20,8 @@ const clientsSlice = createSlice({
   },
 });
 
-export const selectClients = (state: RootState) => state.clientsSlice.clients;
+export const selectClients = (state: RootState) => state.clientsReducer.clients;
 export const selectCurrentPage = (state: RootState) =>
-  state.clientsSlice.currentPage;
-
+  state.clientsReducer.currentPage;
 export const { setClients, setPage } = clientsSlice.actions;
-
 export default clientsSlice;

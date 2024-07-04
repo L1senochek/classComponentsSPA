@@ -1,9 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-
-import clientsSlice from './slices/clientsReducer';
+import clientsSlice from './slices/clientsSlice';
+import languageSlice from './slices/languageSlice';
 
 const rootReducer = combineReducers({
-  clientsSlice: clientsSlice.reducer,
+  clientsReducer: clientsSlice.reducer,
+  languageReducer: languageSlice.reducer,
 });
 
 const store = () => {
