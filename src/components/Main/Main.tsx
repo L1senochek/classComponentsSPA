@@ -46,7 +46,7 @@ class Main extends React.Component<IMainProps> {
 
   render() {
     const { clients, currentPage } = this.props;
-    const clientsPerPage = 9;
+    const clientsPerPage = 10;
     const totalPages = Math.ceil(clients.length / clientsPerPage);
     const startIndex = (currentPage - 1) * clientsPerPage;
     const currentClients = clients.slice(
