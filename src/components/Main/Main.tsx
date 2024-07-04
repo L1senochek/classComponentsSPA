@@ -25,7 +25,7 @@ class Main extends React.Component<IMainProps> {
   }
 
   loadClientsData = (): void => {
-    fetch('./src/jsons/data.json')
+    fetch('/jsons/data.json')
       .then((response) => response.json())
       .then((data) => {
         const { language } = this.props;
